@@ -7,18 +7,54 @@
 //
 
 import UIKit
+import CoreData
 
-class ShoppingListTableViewController: UITableViewController {
+class ShoppingListTableViewController: UITableViewController, ShoppingTableViewCellDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      ShoppingController.sharedController.fetchedResultsController.delegate = self
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func buttonCellButtonTapped(cell: ButtonTableViewCell) {
+        <#code#>
+    }
+    
+    // MARK: - Action button
 
+    @IBAction func addButtonTapped(sender: AnyObject) {
+        presentAlertController()
+    }
+    
+    // MARK: Alert Controller
+    
+    func presentAlertController() {
+        
+        var nameTextField: UITextField?
+        
+         let alertController = UIAlertController(title: "Add item", message: "What do you need to buy?", preferredStyle: .Alert)
+        alertController.addTextFieldWithConfigurationHandler {(textField) in
+            textField.placeholder = "Item name..."
+            nameTextField = textField }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let makeAction = UIAlertAction(title: "Add", style: .Default) {(_) in
+            guard let name = nameTextField?.text where name.characters.count > 0 else { return }
+            ShoppingController.sharedController.addShopping(name: String)
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(makeAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -33,57 +69,44 @@ class ShoppingListTableViewController: UITableViewController {
             return 0 }
         return sections[section].numberOfObjects
     }
-//: TODO - Delegate 
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("shoppingCell", forIndexPath: indexPath) as?
-        ButtonTableViewCell,
-        shopping = ShoppingController.sharedController.fetchedResultsController.objectAtIndexPath(indexPath) as? Shopping
- //           else {
-            return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCellWithIdentifier("shoppingCell", forIndexPath: indexPath) as? ButtonTableViewCell,
+            shopping = ShoppingController.sharedController.fetchedResultsController.objectAtIndexPath(indexPath) as? Shopping else {
+                return UITableViewCell()
         }
-        
-
-  //      return cell
+        cell.updateWithShopping(shopping)
+        return cell
     }
    
 
-
-    /*
-    // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            guard let shopping = ShoppingController.sharedController.fetchedResultsController.objectAtIndexPath(indexPath) as? Shopping else {return}
+            ShoppingController.sharedController.removeShopping(shopping)
+        }
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let sections = ShoppingController.sharedController.fetchedResultsController.sections else {
+            return nil }
+        let value = Int(sections[section].name)
+        if value == 0 { return "Need to get this!"
+        } else { return "Obtained"
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+}
+   
 
 }
+
+extension ShoppingListTableViewController: NSFetchedResultsControllerDelegate {
+    
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        tableView.beginUpdates()
+}
+
+}
+
+

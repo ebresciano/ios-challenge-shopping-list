@@ -14,7 +14,7 @@ import CoreData
 
 extension Shopping {
 
-    @NSManaged var name: String?
-    @NSManaged var didBuy: NSNumber?
+    @NSManaged var name: String
+    @NSManaged var didBuy: NSNumber
 
 }

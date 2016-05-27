@@ -27,7 +27,7 @@ class ShoppingController {
     }
     
     func addShopping(name: String) {
-        let shopping = Shopping(name: String)
+       _ = Shopping(name: name)
         saveToPersistentStorage()
         
     }

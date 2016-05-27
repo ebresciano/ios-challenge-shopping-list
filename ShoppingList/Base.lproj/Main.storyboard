@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingCell" id="Hi6-dS-kPc">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingCell" id="Hi6-dS-kPc" customClass="ButtonTableViewCell" customModule="ShoppingList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hi6-dS-kPc" id="AEt-qw-vJ6">
@@ -34,6 +34,9 @@
                                                 <constraint firstAttribute="width" constant="42" id="unr-0T-xRc"/>
                                             </constraints>
                                             <state key="normal" image="incomplete"/>
+                                            <connections>
+                                                <action selector="buttonTapped:" destination="Hi6-dS-kPc" eventType="touchUpInside" id="N1u-z5-AJu"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -45,6 +48,10 @@
                                         <constraint firstItem="Rqg-ls-7lB" firstAttribute="leading" secondItem="AEt-qw-vJ6" secondAttribute="leadingMargin" id="v8I-6e-eD4"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="Button" destination="di4-Pg-vrb" id="7L6-tW-qUq"/>
+                                    <outlet property="PrimaryLabel" destination="Rqg-ls-7lB" id="B0S-TV-uQB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -53,7 +60,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="bSi-cC-3FB">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cvN-ZS-OAg"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cvN-ZS-OAg">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="ULq-VK-X2m" id="mql-WA-iHr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fv0-bn-LBS" userLabel="First Responder" sceneMemberID="firstResponder"/>

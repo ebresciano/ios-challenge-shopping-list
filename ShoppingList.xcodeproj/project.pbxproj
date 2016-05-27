@@ -11,6 +11,13 @@
 		1A4A23221CCA8D2C003A4350 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A23201CCA8D2C003A4350 /* Main.storyboard */; };
 		1A4A23241CCA8D2C003A4350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A23231CCA8D2C003A4350 /* Assets.xcassets */; };
 		1A4A23271CCA8D2C003A4350 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4A23251CCA8D2C003A4350 /* LaunchScreen.storyboard */; };
+		CCD9E6D91CF89BFF0041EAD6 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD9E6D81CF89BFF0041EAD6 /* Stack.swift */; };
+		CCD9E6DC1CF89C2D0041EAD6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCD9E6DA1CF89C2D0041EAD6 /* Model.xcdatamodeld */; };
+		CCD9E6DF1CF89CB30041EAD6 /* Shopping+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD9E6DD1CF89CB30041EAD6 /* Shopping+CoreDataProperties.swift */; };
+		CCD9E6E01CF89CB30041EAD6 /* Shopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD9E6DE1CF89CB30041EAD6 /* Shopping.swift */; };
+		CCD9E6E21CF89E840041EAD6 /* ShoppingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD9E6E11CF89E840041EAD6 /* ShoppingListTableViewController.swift */; };
+		CCD9E6E41CF89F090041EAD6 /* ShoppingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD9E6E31CF89F090041EAD6 /* ShoppingController.swift */; };
+		CCD9E6E81CF8A0030041EAD6 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD9E6E71CF8A0030041EAD6 /* ButtonTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +27,13 @@
 		1A4A23231CCA8D2C003A4350 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A4A23261CCA8D2C003A4350 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A4A23281CCA8D2C003A4350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCD9E6D81CF89BFF0041EAD6 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		CCD9E6DB1CF89C2D0041EAD6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		CCD9E6DD1CF89CB30041EAD6 /* Shopping+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Shopping+CoreDataProperties.swift"; path = "../Shopping+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CCD9E6DE1CF89CB30041EAD6 /* Shopping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shopping.swift; path = ../Shopping.swift; sourceTree = "<group>"; };
+		CCD9E6E11CF89E840041EAD6 /* ShoppingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewController.swift; sourceTree = "<group>"; };
+		CCD9E6E31CF89F090041EAD6 /* ShoppingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingController.swift; sourceTree = "<group>"; };
+		CCD9E6E71CF8A0030041EAD6 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,12 +67,51 @@
 			isa = PBXGroup;
 			children = (
 				1A4A231C1CCA8D2C003A4350 /* AppDelegate.swift */,
-				1A4A23201CCA8D2C003A4350 /* Main.storyboard */,
+				CCD9E6D81CF89BFF0041EAD6 /* Stack.swift */,
+				CCD9E6E51CF89F6E0041EAD6 /* MODEL */,
+				CCD9E6E61CF89F8D0041EAD6 /* MODEL CONTROLLER */,
+				CCD9E6E91CF8A0630041EAD6 /* VIEW CONTROLLERS */,
+				CCD9E6EA1CF8A0700041EAD6 /* VIEW */,
 				1A4A23231CCA8D2C003A4350 /* Assets.xcassets */,
 				1A4A23251CCA8D2C003A4350 /* LaunchScreen.storyboard */,
 				1A4A23281CCA8D2C003A4350 /* Info.plist */,
 			);
 			path = ShoppingList;
+			sourceTree = "<group>";
+		};
+		CCD9E6E51CF89F6E0041EAD6 /* MODEL */ = {
+			isa = PBXGroup;
+			children = (
+				CCD9E6DA1CF89C2D0041EAD6 /* Model.xcdatamodeld */,
+				CCD9E6DD1CF89CB30041EAD6 /* Shopping+CoreDataProperties.swift */,
+				CCD9E6DE1CF89CB30041EAD6 /* Shopping.swift */,
+			);
+			name = MODEL;
+			sourceTree = "<group>";
+		};
+		CCD9E6E61CF89F8D0041EAD6 /* MODEL CONTROLLER */ = {
+			isa = PBXGroup;
+			children = (
+				CCD9E6E31CF89F090041EAD6 /* ShoppingController.swift */,
+			);
+			name = "MODEL CONTROLLER";
+			sourceTree = "<group>";
+		};
+		CCD9E6E91CF8A0630041EAD6 /* VIEW CONTROLLERS */ = {
+			isa = PBXGroup;
+			children = (
+				CCD9E6E11CF89E840041EAD6 /* ShoppingListTableViewController.swift */,
+				CCD9E6E71CF8A0030041EAD6 /* ButtonTableViewCell.swift */,
+			);
+			name = "VIEW CONTROLLERS";
+			sourceTree = "<group>";
+		};
+		CCD9E6EA1CF8A0700041EAD6 /* VIEW */ = {
+			isa = PBXGroup;
+			children = (
+				1A4A23201CCA8D2C003A4350 /* Main.storyboard */,
+			);
+			name = VIEW;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,7 +185,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCD9E6D91CF89BFF0041EAD6 /* Stack.swift in Sources */,
+				CCD9E6DF1CF89CB30041EAD6 /* Shopping+CoreDataProperties.swift in Sources */,
 				1A4A231D1CCA8D2C003A4350 /* AppDelegate.swift in Sources */,
+				CCD9E6E81CF8A0030041EAD6 /* ButtonTableViewCell.swift in Sources */,
+				CCD9E6DC1CF89C2D0041EAD6 /* Model.xcdatamodeld in Sources */,
+				CCD9E6E01CF89CB30041EAD6 /* Shopping.swift in Sources */,
+				CCD9E6E41CF89F090041EAD6 /* ShoppingController.swift in Sources */,
+				CCD9E6E21CF89E840041EAD6 /* ShoppingListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,8 +342,22 @@
 				1A4A232D1CCA8D2C003A4350 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CCD9E6DA1CF89C2D0041EAD6 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CCD9E6DB1CF89C2D0041EAD6 /* Model.xcdatamodel */,
+			);
+			currentVersion = CCD9E6DB1CF89C2D0041EAD6 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1A4A23111CCA8D2C003A4350 /* Project object */;
 }

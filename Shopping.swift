@@ -12,7 +12,7 @@ import CoreData
 
 class Shopping: NSManagedObject {
 
-    convenience init?(name: String, didBuy: Bool, context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
+    convenience init?(name: String, didBuy: Bool = false, context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
         guard let entity = NSEntityDescription.entityForName("Shopping", inManagedObjectContext: context) else {return nil}
         
         self.init(entity: entity, insertIntoManagedObjectContext: context)

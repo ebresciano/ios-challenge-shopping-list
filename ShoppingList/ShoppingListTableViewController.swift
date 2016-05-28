@@ -23,7 +23,7 @@ class ShoppingListTableViewController: UITableViewController, ShoppingTableViewC
     }
     
     func buttonCellButtonTapped(cell: ButtonTableViewCell) {
-        <#code#>
+    
     }
     
     // MARK: - Action button
@@ -46,7 +46,7 @@ class ShoppingListTableViewController: UITableViewController, ShoppingTableViewC
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         let makeAction = UIAlertAction(title: "Add", style: .Default) {(_) in
             guard let name = nameTextField?.text where name.characters.count > 0 else { return }
-            ShoppingController.sharedController.addShopping(name: String)
+            ShoppingController.sharedController.addShopping(name)
         }
         alertController.addAction(cancelAction)
         alertController.addAction(makeAction)
